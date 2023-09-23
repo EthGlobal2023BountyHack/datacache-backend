@@ -1,0 +1,47 @@
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    Credentials:
+      type: object
+      required:
+        - email
+        - password
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+    NFT:
+      type: object
+      required:
+        - gameId
+        - metadata
+      properties:
+        gameId:
+          type: string
+        metadata:
+          type: object
+        tokenId:
+          type: string
+        blockchain:
+          type: object
+          properties:
+            createdAt:
+              type: date
+            lastUpdatedAt:
+              type: date
+            txHash:
+              type: string
+        balanceOf:
+          type: number
+        ownerOf:
+          type: string
+        contractAddress:
+          type: string
+        tokenType:
+          type: string
+          enum: ["ERC721", "ERC1155", null]
